@@ -1,0 +1,121 @@
+﻿<dx:ThemedWindow 
+    x:Class="CircularProgressBar.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    UseLayoutRounding="True"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:controls="clr-namespace:CircularProgressBar.Controls"
+    dx:ThemeManager.ThemeName="Office2019Colorful"
+    Title="MainWindow" Height="900" Width="1000">
+    <dx:ThemedWindow.Resources>
+        <Style TargetType="dxe:TrackBarEdit">
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="Maximum" Value="100"/>
+            <Setter Property="TickPlacement" Value="BottomRight"/>
+            <Setter Property="TickFrequency" Value="10"/>
+            <Setter Property="TickItemDisplayMode" Value="TickAndText"/>
+        </Style>
+        <LinearGradientBrush x:Key="OrangeGradient" StartPoint="0,0" EndPoint="1,0" >
+            <GradientStop Color="#FFF900" Offset="0"/>
+            <GradientStop Color="#FF0000" Offset="1"/>
+        </LinearGradientBrush>
+    </dx:ThemedWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Simple Circle Progress Bar"  >
+            <DockPanel>
+                <dxe:TrackBarEdit x:Name="TrackBar1"
+                                  DockPanel.Dock="Top"
+                                  Grid.Column="1" 
+                                  Value="82"/>
+                <Border>
+
+                    <controls:SimpleCircularProgressBar MinValue="{Binding ElementName=TrackBar1, Path=Minimum}"
+                                                    MaxValue="{Binding ElementName=TrackBar1, Path=Maximum}"
+                                                    Value="{Binding ElementName=TrackBar1, Path=Value}"
+                                                    Thickness="15" ProgressThickness="15" TextBrush="Black"
+                                                    ProgressBrush="{StaticResource OrangeGradient}"/>
+                </Border>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="Segmented Circle Progress Bar"  Grid.Column="1">
+            <DockPanel>
+
+                <dxe:TrackBarEdit x:Name="TrackBar2" DockPanel.Dock="Top"
+                                  Grid.Column="1" Value="54"/>
+
+                <controls:SegmentedCircularProgressBar MinValue="{Binding ElementName=TrackBar2, Path=Minimum}"
+                                                        MaxValue="{Binding ElementName=TrackBar2, Path=Maximum}"
+                                                        Value="{Binding ElementName=TrackBar2, Path=Value}"
+                                                        Segment1Brush="#CCDC3B"
+                                                        Segment2Brush="#FF5E01"
+                                                        Segment3Brush="#29B6F6"
+                                                        Segment4Brush="#FFC106"
+                                                        Thickness="15"
+                                                        ProgressThickness="15" TextBrush="Black" FontWeight="Medium"/>
+
+            </DockPanel>
+        </GroupBox>
+
+        <GroupBox Header="Multiple Values Circle Progress Bar"  Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <GroupBox Header="Temazepam:" BorderThickness="0">
+                    <dxe:TrackBarEdit x:Name="Range1" Value="23"/>
+                </GroupBox>
+                <GroupBox Header="Guaifenesin:" BorderThickness="0" Grid.Row="1">
+                    <dxe:TrackBarEdit x:Name="Range2" Value="34"/>
+                </GroupBox>
+                <GroupBox Header="Salicylic Acid:" BorderThickness="0" Grid.Row="2">
+                    <dxe:TrackBarEdit x:Name="Range3" Value="67"/>
+                </GroupBox>
+                <GroupBox Header="Fluoride:" BorderThickness="0" Grid.Row="3">
+                    <dxe:TrackBarEdit x:Name="Range4" Value="93"/>
+                </GroupBox>
+                <GroupBox Header="Zinc Oxide:" BorderThickness="0" Grid.Row="4">
+                    <dxe:TrackBarEdit x:Name="Range5" Value="56"/>
+                </GroupBox>
+
+                <controls:FiveRangeCircularProgressBar Grid.RowSpan="5"
+                                                        ProgressThickness="25" Thickness="25"
+                                                        Grid.Column="1"                                                         
+                                                        Range1Label="Temazepam"
+                                                        Range2Label="Guaifenesin"
+                                                        Range3Label="Salicylic Acid"
+                                                        Range4Label="Fluoride"
+                                                        TextBrush="#262626"
+                                                        Range5Label="Zinc Oxide"
+                                                        FontSize="15"
+                                                        FontFamily="Segoe UI"
+                                                        FontWeight="Regular"
+                                                        Range1Value="{Binding ElementName=Range1, Path=Value}"
+                                                        Range2Value="{Binding ElementName=Range2, Path=Value}"
+                                                        Range3Value="{Binding ElementName=Range3, Path=Value}"
+                                                        Range4Value="{Binding ElementName=Range4, Path=Value}"
+                                                        Range5Value="{Binding ElementName=Range5, Path=Value}"/>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</dx:ThemedWindow>
