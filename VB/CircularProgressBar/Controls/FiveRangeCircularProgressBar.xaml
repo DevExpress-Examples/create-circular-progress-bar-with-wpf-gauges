@@ -1,0 +1,174 @@
+﻿<UserControl x:Class="CircularProgressBar.Controls.FiveRangeCircularProgressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:CircularProgressBar.Controls"
+             xmlns:converters="clr-namespace:CircularProgressBar.Converters"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="ProgressBarBackgroundBrush"  Color="#E6E6E6"/>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding RelativeSource={RelativeSource AncestorType=local:FiveRangeCircularProgressBar}}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <dxga:CircularGaugeControl Grid.RowSpan="2" Grid.ColumnSpan="2" >
+            <dxga:CircularGaugeControl.Scales>
+                <dxga:ArcScale StartAngle="-90"
+                               EndAngle="180" 
+                               x:Name="arc"
+                               StartValue="{Binding MinValue}"
+                               EndValue="{Binding MaxValue}"
+                               ShowMajorTickmarks="False"
+                               ShowMinorTickmarks="False" 
+                               ShowLabels="false"
+                               LayoutMode="Circle" Margin="15">
+                    
+                    <dxga:ArcScale.LabelOptions>
+                        <dxga:ArcScaleLabelOptions Offset="-50"/>
+                    </dxga:ArcScale.LabelOptions>
+                    <dxga:ArcScale.RangeBars>
+                        <!--A gray progress-circles in the background-->
+                        
+                        <dxga:ArcScaleRangeBar AnchorValue="{Binding ElementName=arc, Path=StartValue}" 
+                                               Value="{Binding ElementName=arc, Path=EndValue}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=5}" 
+                                                              Thickness="{Binding Thickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{StaticResource ProgressBarBackgroundBrush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar AnchorValue="{Binding ElementName=arc, Path=StartValue}" 
+                                               Value="{Binding ElementName=arc, Path=EndValue}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=4}" 
+                                                              Thickness="{Binding Thickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{StaticResource ProgressBarBackgroundBrush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar AnchorValue="{Binding ElementName=arc, Path=StartValue}" 
+                                               Value="{Binding ElementName=arc, Path=EndValue}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=3}" 
+                                                              Thickness="{Binding Thickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{StaticResource ProgressBarBackgroundBrush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar AnchorValue="{Binding ElementName=arc, Path=StartValue}" 
+                                               Value="{Binding ElementName=arc, Path=EndValue}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=2}" 
+                                                              Thickness="{Binding Path=Thickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{StaticResource ProgressBarBackgroundBrush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar AnchorValue="{Binding ElementName=arc, Path=StartValue}" 
+                                               Value="{Binding ElementName=arc, Path=EndValue}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=1}" 
+                                                              Thickness="{Binding Thickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{StaticResource ProgressBarBackgroundBrush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        
+                        <!--Colored Progress Bar Ranges-->
+
+                        <dxga:ArcScaleRangeBar Value="{Binding Range5Value}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=5}" 
+                                                              Thickness="{Binding RelativeSource={RelativeSource 
+                                                                 AncestorType=local:FiveRangeCircularProgressBar}, Path=ProgressThickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{Binding Range5Brush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar Value="{Binding Range4Value}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=4}" 
+                                                              Thickness="{Binding ProgressThickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{Binding Range4Brush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar Value="{Binding Range3Value}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=3}" 
+                                                              Thickness="{Binding ProgressThickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{Binding Range3Brush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar Value="{Binding Range2Value}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=2}" 
+                                                              Thickness="{Binding ProgressThickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{Binding Range2Brush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                        <dxga:ArcScaleRangeBar Value="{Binding Range1Value}">
+                            <dxga:ArcScaleRangeBar.Options>
+                                <dxga:ArcScaleRangeBarOptions Offset="{Binding ProgressThickness, Converter={converters:ThicknessToOffsetConverter}, ConverterParameter=1}" 
+                                                              Thickness="{Binding ProgressThickness}"/>
+                            </dxga:ArcScaleRangeBar.Options>
+                            <dxga:ArcScaleRangeBar.Presentation>
+                                <dxga:DefaultArcScaleRangeBarPresentation Fill="{Binding Range1Brush}"/>
+                            </dxga:ArcScaleRangeBar.Presentation>
+                        </dxga:ArcScaleRangeBar>
+                    </dxga:ArcScale.RangeBars>
+                </dxga:ArcScale>
+            </dxga:CircularGaugeControl.Scales>
+        </dxga:CircularGaugeControl>
+
+        <Grid HorizontalAlignment="Right" Margin="0,0,7,0">
+            <Grid.Resources>
+                <Style TargetType="RowDefinition">
+                    <Setter Property="Height" Value="{DXBinding Expr='ProgressThickness + 7'}"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                    <Setter Property="Foreground" Value="{Binding TextBrush}"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{DXBinding Expr='Range1Label + `, ` + Range1Value + `%`'}"/>
+            <TextBlock Grid.Row="1" Text="{DXBinding Expr='Range2Label + `, ` + Range2Value + `%`'}"/>
+            <TextBlock Grid.Row="2" Text="{DXBinding Expr='Range3Label + `, ` + Range3Value + `%`'}"/>
+            <TextBlock Grid.Row="3" Text="{DXBinding Expr='Range4Label + `, ` + Range4Value + `%`'}"/>
+            <TextBlock Grid.Row="4" Text="{DXBinding Expr='Range5Label + `, ` + Range5Value + `%`'}"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
