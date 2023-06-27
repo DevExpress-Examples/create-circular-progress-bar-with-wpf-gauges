@@ -5,60 +5,73 @@
 <!-- default badges end -->
 # Create Circular Progress Bar with WPF Gauges
 
-This example illustrates how to implement different Circular Progress Bars using DevExpress Gauges controls. The implementaiton contains three custom UserControls: 
+This example demonstrates how to use [DevExpress WPF Gauge controls](https://www.devexpress.com/products/net/controls/wpf/gauges/) to implement different Circular Progress Bars. The implementaiton contains three custom `UserControls`: 
 
-1. `SimpleCircularProgressBar` - A simple Circular Progress Bar control.
-2. `SegmentedCircularProgressBar` - A Circular Progress Bar control whose progress range element has four colored sections that reveal depending on the current control value.
-3. `FiveRangeCircularProgressBar` - A Circular Progress Bar control that allows you to show a progress of five separate values. 
+1. [SimpleCircularProgressBar](#simplecircularprogressbar) - A simple Circular Progress Bar control.
+2. [SegmentedCircularProgressBar](#segmentedcircularprogressbar) - A Circular Progress Bar control that contains four colored sections. Each section is revealed based on the control value.
+3. [FiveRangeCircularProgressBar](#fiverangecircularprogressbar) - A Circular Progress Bar control that allows you to show a progress of five separate values.
 
-All these controls are implemented with the help of [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl). The gray progress backgrounds and the colored progress range elements are defined via [ArcScaleRangeBars](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.ArcScaleRangeBar). 
+All these controls are implemented with the help of the [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl). [ArcScaleRangeBars](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.ArcScaleRangeBar) define gray progress backgrounds and colored progress range elements. 
 
 
 ----
 
 ## SimpleCircularProgressBar
 
+A simple Circular Progress Bar control.
+
 ![Image](/images/SimpleCircularProgressBar.png)
 
 ```xaml
- <controls:SimpleCircularProgressBar MinValue="{Binding ElementName=TrackBar1, Path=Minimum}"
+ <controls:SimpleCircularProgressBar 
+        MinValue="{Binding ElementName=TrackBar1, Path=Minimum}"
         MaxValue="{Binding ElementName=TrackBar1, Path=Maximum}"
         Value="{Binding ElementName=TrackBar1, Path=Value}"
         Thickness="15" ProgressThickness="15" TextBrush="Black"
         ProgressBrush="{StaticResource OrangeGradient}"/>
 ```
 
+* [SimpleCircularProgressBar.xaml](./CS/CircularProgressBar/Controls/SimpleCircularProgressBar.xaml)
+* [SimpleCircularProgressBar.xaml.cs](./CS/CircularProgressBar/Controls/SimpleCircularProgressBar.xaml.cs) (VB: [SimpleCircularProgressBar.xaml.vb](./VB/CircularProgressBar/Controls/SimpleCircularProgressBar.xaml.vb))
+
+
 ## SegmentedCircularProgressBar
+
+A Circular Progress Bar control that contains four colored sections. Each section is revealed based on the control value.
 
 ![Image](/images/SegmentedCircularProgressBar.png)
 
 ```xaml
-<controls:SegmentedCircularProgressBar MinValue="{Binding ElementName=TrackBar2, Path=Minimum}"
+<controls:SegmentedCircularProgressBar 
+        MinValue="{Binding ElementName=TrackBar2, Path=Minimum}"
         MaxValue="{Binding ElementName=TrackBar2, Path=Maximum}"
         Value="{Binding ElementName=TrackBar2, Path=Value}"
         Segment1Brush="#CCDC3B"
         Segment2Brush="#FF5E01"
         Segment3Brush="#29B6F6"
         Segment4Brush="#FFC106"
-        Thickness="15"
-        ProgressThickness="15" TextBrush="Black" FontWeight="Medium"/>
+        Thickness="15" ProgressThickness="15" TextBrush="Black"/>
 ```
+
+* [SegmentedCircularProgressBar.xaml](./CS/CircularProgressBar/Controls/SegmentedCircularProgressBar.xaml)
+* [SegmentedCircularProgressBar.xaml.cs](./CS/CircularProgressBar/Controls/SegmentedCircularProgressBar.xaml.cs) (VB: [SegmentedCircularProgressBar.xaml.vb](./VB/CircularProgressBar/Controls/SegmentedCircularProgressBar.xaml.vb))
 
 
 ## FiveRangeCircularProgressBar
 
+A Circular Progress Bar control that allows you to show a progress of five separate values.
+
 ![Image](/images/FiveRangeCircularProgressBar.png)
 
 ```xaml
-<controls:FiveRangeCircularProgressBar Grid.RowSpan="5"
+<controls:FiveRangeCircularProgressBar 
         ProgressThickness="25" Thickness="25"
-        Grid.Column="1"
         Range1Label="Temazepam"
         Range2Label="Guaifenesin"
         Range3Label="Salicylic Acid"
         Range4Label="Fluoride"
-        TextBrush="#262626"
         Range5Label="Zinc Oxide"
+        TextBrush="#262626"
         FontSize="15"
         FontFamily="Segoe UI"
         FontWeight="Regular"
@@ -68,3 +81,20 @@ All these controls are implemented with the help of [CircularGaugeControl](https
         Range4Value="{Binding ElementName=Range4, Path=Value}"
         Range5Value="{Binding ElementName=Range5, Path=Value}"/>
 ```
+
+* [FiveRangeCircularProgressBar.xaml](./CS/CircularProgressBar/Controls/FiveRangeCircularProgressBar.xaml)
+* [FiveRangeCircularProgressBar.xaml.cs](./CS/CircularProgressBar/Controls/FiveRangeCircularProgressBar.xaml.cs) (VB: [FiveRangeCircularProgressBar.xaml.vb](./VB/CircularProgressBar/Controls/FiveRangeCircularProgressBar.xaml.vb))
+
+## Files to Review
+
+* [MainWindow.xaml](./CS/CircularProgressBar/MainWindow.xaml)
+
+## Documentation
+
+* [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl)
+* [ArcScaleRangeBar](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.ArcScaleRangeBar)
+* [Scales](https://docs.devexpress.com/WPF/10321/controls-and-libraries/gauge-controls/scales)
+
+## More Examples
+
+* [WPF Gauges - Create a Knob-like Gauge](https://github.com/DevExpress-Examples/wpf-gauges-create-a-knob-like-gauge)

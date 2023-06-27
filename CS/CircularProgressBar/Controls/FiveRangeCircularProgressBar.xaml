@@ -37,7 +37,7 @@
                         <dxga:ArcScaleLabelOptions Offset="-50"/>
                     </dxga:ArcScale.LabelOptions>
                     <dxga:ArcScale.RangeBars>
-                        <!--A gray progress-circles in the background-->
+                        <!--Gray progress circles in the background-->
                         
                         <dxga:ArcScaleRangeBar AnchorValue="{Binding ElementName=arc, Path=StartValue}" 
                                                Value="{Binding ElementName=arc, Path=EndValue}">
@@ -90,7 +90,7 @@
                             </dxga:ArcScaleRangeBar.Presentation>
                         </dxga:ArcScaleRangeBar>
                         
-                        <!--Colored Progress Bar Ranges-->
+                        <!--Colored progress bar circles-->
 
                         <dxga:ArcScaleRangeBar Value="{Binding Range5Value}">
                             <dxga:ArcScaleRangeBar.Options>

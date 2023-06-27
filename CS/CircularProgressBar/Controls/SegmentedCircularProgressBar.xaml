@@ -23,7 +23,7 @@
                         <dxga:ArcScaleLabelOptions Offset="-50"/>
                     </dxga:ArcScale.LabelOptions>
                     
-                    <!--The text shown in the center-->
+                    <!--Text shown in the center-->
                     <dxga:ArcScale.CustomElements>
                         <dxga:ScaleCustomElement >
                             <Viewbox>
@@ -38,7 +38,7 @@
                     </dxga:ArcScale.CustomElements>
                     <dxga:ArcScale.RangeBars>
                         
-                        <!--A gray progress-circle in the background-->
+                        <!--A gray progress circle in the background-->
                         <dxga:ArcScaleRangeBar AnchorValue="{Binding ElementName=arc, Path=StartValue}" 
                                                Value="{Binding ElementName=arc, Path=EndValue}">
                             <dxga:ArcScaleRangeBar.Options>
@@ -50,7 +50,7 @@
                         </dxga:ArcScaleRangeBar>
                         
                         
-                        <!--A colored progress-bar circle-->
+                        <!--A colored progress bar circle-->
                         <dxga:ArcScaleRangeBar AnchorValue="0" Value="{Binding Value}">
                             <dxga:ArcScaleRangeBar.Options>
                                 <dxga:ArcScaleRangeBarOptions Offset="-20" 
