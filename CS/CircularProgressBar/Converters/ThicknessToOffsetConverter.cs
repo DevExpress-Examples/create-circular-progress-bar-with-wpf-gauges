@@ -14,12 +14,15 @@ namespace CircularProgressBar.Converters
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             int factor = 1;
+            if (parameter is null && value is null)
+                return 0;
 
-            if (value is int val && parameter is string param && int.TryParse(param, out factor))
-            {
-                return -(val * (factor - 1)) - (7 * (factor - 1));
-            }
-            return 0;
+            var param = (string)parameter;
+            var val = (int)value;
+            if(!int.TryParse(param, out factor))
+                return 0;
+
+            return - (val + 7) * (factor - 1);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
