@@ -7,8 +7,8 @@
 
 This example demonstrates the use of [DevExpress WPF Gauge controls](https://www.devexpress.com/products/net/controls/wpf/gauges/) to create different Circular Progress Bars. This sample implementation includes three custom `UserControls`:
 
-1. [SimpleCircularProgressBar](#simplecircularprogressbar) - A simple Circular Progress Bar control.
-2. [SegmentedCircularProgressBar](#segmentedcircularprogressbar) - A Circular Progress Bar control with four colored sections. Each section is revealed based on the control value.
+1. [SimpleCircularProgressBar](#simple-circular-progressbar) - A simple Circular Progress Bar control.
+2. [SegmentedCircularProgressBar](#segmented-circular-progressbar) - A Circular Progress Bar control with four colored sections. Each section is revealed based on the control value.
 3. [FiveRangeCircularProgressBar](#fiverangecircularprogressbar) - A Circular Progress Bar control able to display the progress of five separate values.
 
 All controls use the DevExpress WPF [Circular Gauge Control](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl). [ArcScaleRangeBars](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.ArcScaleRangeBar) define gray progress backgrounds and colored progress range elements.
