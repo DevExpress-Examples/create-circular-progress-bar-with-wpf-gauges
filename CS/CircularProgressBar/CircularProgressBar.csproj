@@ -39,7 +39,7 @@
     <Reference Include="DevExpress.Data.v22.1" />
     <Reference Include="DevExpress.Printing.v22.1.Core" />
     <Reference Include="DevExpress.Xpf.Core.v22.1" />
-    <Reference Include="DevExpress.Xpf.Gauges.v22.1, Version=22.1.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Xpf.Gauges.v22.1, Version=22.1.14.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v22.1" />
