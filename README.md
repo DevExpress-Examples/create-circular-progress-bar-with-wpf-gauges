@@ -99,7 +99,7 @@ A Circular Progress Bar control able to display the progress of five separate va
 
 * [WPF Gauges - Create a Knob-like Gauge](https://github.com/DevExpress-Examples/wpf-gauges-create-a-knob-like-gauge)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=create-circular-progress-bar-with-wpf-gauges&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=create-circular-progress-bar-with-wpf-gauges&~~~was_helpful=no)
 
